@@ -1,4 +1,9 @@
-<div><%= "#{@user.name} joined on #{@created_at}" %></div>
+<div class="row">    
+  <div class="span12 thumbnail">
+      <small><strong><%= "#{@user.name} joined on #{@created_at.strftime("%b %d, %Y")}" %></strong></small>
+  </div>
+</div>
+
 <table class="table  table-bordered">
     <tr>
         <th>
@@ -40,3 +45,19 @@
         <li><%= will_paginate @response, renderer: BootstrapPagination::Rails, :param_name => 'rubyGems_page' %></li>
     </ul>
 </nav>
+
+<table class="table  table-bordered">
+    <tr>
+        <th>
+            Twitter feeds of the user
+        </th>
+    </tr>
+    <% @twitter_user.each do |tweet| %>
+    <tr class="<%= cycle('info', 'active') -%>">
+     <td>
+        <%= link_to tweet.text, url_for("https://www.twitter.com/#{tweet.user.screen_name}"), :target => "_blank"%>
+     </td>
+    </tr>
+    <% end %>
+    
+</table>
