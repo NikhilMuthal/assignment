@@ -1,0 +1,42 @@
+<div><%= "#{@user.name} joined on #{@created_at}" %></div>
+<table class="table  table-bordered">
+    <tr>
+        <th>
+            Repository Links
+        </th>
+    </tr>
+    <% @repos.each do |repos| %>
+    <tr class="<%= cycle('info', 'active') -%>">
+     <td>
+        <%= link_to repos.svn_url , url_for(repos.svn_url), :target => "_blank"%>
+     </td>
+    </tr>
+    <% end %>
+    
+</table>    
+<nav>
+    <ul class="pagination" style="margin-top: -40px;">
+        <li><%= will_paginate @repos, renderer: BootstrapPagination::Rails, :param_name => 'github_page' %></li>
+    </ul>
+</nav>
+
+<table class="table  table-bordered">
+    <tr>
+        <th>
+            Gems published by user
+        </th>
+    </tr>
+    <% @response.each do |response| %>
+    <tr class="<%= cycle('info', 'active') -%>">
+     <td>
+        <%= link_to response["homepage_uri"] , url_for(response["homepage_uri"]), :target => "_blank"%>
+     </td>
+    </tr>
+    <% end %>
+    
+</table>    
+<nav>
+    <ul class="pagination" style="margin-top: -40px;">
+        <li><%= will_paginate @response, renderer: BootstrapPagination::Rails, :param_name => 'rubyGems_page' %></li>
+    </ul>
+</nav>
