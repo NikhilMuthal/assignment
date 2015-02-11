@@ -1,8 +1,30 @@
-<%= form_tag(search_results_search_path, :method => "get", id: "search-form") do %>
-    <div class="form-group">
-      <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
-    </div>
+<div class="">
+    <div id="notice">
+
+    </div>      
+</div>
+<%= form_tag(search_results_search_path, :method => "get", id: "search-form", :class => "navbar-form navbar-left") do %>
+  <div class="form-group">
+      <%= text_field_tag :search, params[:search], placeholder: "Search Users" , :class => "subscribe-form-email "%>
+  </div>
   <div class="form-group">
   </div>
-  <%= submit_tag "Search", :name => nil, :class =>"btn btn-default" %>
+  <span class="subscription-form-submit">
+      <%= submit_tag "Search", :name => nil, :class =>"btn btn-primary ",  :onclick => "validate_selection()", :disabled => true%>
+  </span>
+
 <% end %>
+
+<script>
+  $(document).ready(function() {
+     $('input[type="submit"]').attr('disabled','disabled');
+     $('input[type="text"]').keyup(function() {
+        if($(this).val() !== '') {
+           $('input[type="submit"]').removeAttr('disabled');
+        }
+        else{
+          $('input[type="submit"]').attr('disabled','disabled');
+        }
+     });
+ });
+</script>

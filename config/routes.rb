@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  get 'search_results/index'
+#  get 'search_results/index'
 
   get 'search_results/search'
 
   get 'search_results/twitter_news'
   get 'search_results/ruby_gems_owners'
   get 'search_results/get_github_user'
+  get 'search_results/export_to_pdf'
+  
+  root "search_results#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

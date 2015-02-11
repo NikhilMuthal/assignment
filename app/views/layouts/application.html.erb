@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Assignment</title>
-  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
-  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	
-<div class="container">
-  <%= yield %>
-</div>
+    <head>
+        <title>Test</title>
+        <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
+        <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-</body>
+        <!-- Custom CSS -->
+        <link href="css/landing-page.css" rel="stylesheet">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">The News feed app</a>
+                </div>
+            </div>
+        </nav>
+        <%= link_to "Download", search_results_export_to_pdf_path(:search => params[:search]) %>
+        <div class="container" style="margin-top: 80px;">
+            <%= yield %>
+        </div>
+        <footer>
+            <div class="container">
+
+            </div>
+        </footer>
+    </body>
 </html>
