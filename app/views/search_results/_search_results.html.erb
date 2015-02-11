@@ -1,8 +1,15 @@
 <% if (@user.present? & @created_at.present?) %>
   <div class="row">    
-      <div class="span12 thumbnail">
-          <small><strong><%=  "#{@user.name} joined on #{@created_at.strftime("%b %d, %Y")}"  %></strong></small>
-      </div>
+      <table class="table  table-bordered">
+          <tr>
+              <th>
+                  User Details:   <strong><%=  "#{@user.name} joined on #{@created_at.strftime("%b %d, %Y")}"  %></strong>
+                  <span class="subscription-form-submit" style="float:right;">
+                      <%= link_to "Download Results", search_results_export_to_pdf_path(:search => params[:search]) %>
+                  </span>
+              </th>
+          </tr>
+      </table>  
   </div>
 <% else %>
   <td>
@@ -39,7 +46,7 @@
   </td>    
 <% end %>
 
-<% if @response.body.present? %>
+<% if @response.present? %>
   <table class="table  table-bordered">
       <tr>
           <th>
