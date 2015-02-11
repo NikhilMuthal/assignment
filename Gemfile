@@ -35,6 +35,7 @@ gem 'pry-rails'
 #gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'pdfkit', '~> 0.6.2'
+gem 'passenger'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

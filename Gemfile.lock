@@ -53,6 +53,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.9.0)
+    daemon_controller (1.2.0)
     debug_inspector (0.0.2)
     debugger (1.6.8)
       columnize (>= 0.3.1)
@@ -121,6 +122,10 @@ GEM
       rack (~> 1.2)
     octokit (3.7.0)
       sawyer (~> 0.6.0, >= 0.5.3)
+    passenger (4.0.59)
+      daemon_controller (>= 1.2.0)
+      rack
+      rake (>= 0.8.1)
     pdfkit (0.6.2)
     pg (0.17.1)
     pry (0.10.1)
@@ -245,6 +250,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   octokit (~> 3.0)
+  passenger
   pdfkit (~> 0.6.2)
   pg
   pry-rails

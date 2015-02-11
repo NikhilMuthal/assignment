@@ -48,3 +48,8 @@ table tr.evenrow {
     cursor: inherit;
     display: block;
 }
+@media print {
+ .export {
+  display: hidden;
+ }
+}

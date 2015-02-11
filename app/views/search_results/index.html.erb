@@ -18,7 +18,7 @@
 <script>
   $(document).ready(function() {
      $('input[type="submit"]').attr('disabled','disabled');
-     $('input[type="text"]').keyup(function() {
+     $('input[type="text"]').blur(function() {
         if($(this).val() !== '') {
            $('input[type="submit"]').removeAttr('disabled');
         }

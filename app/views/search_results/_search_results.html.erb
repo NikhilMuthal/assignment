@@ -5,7 +5,11 @@
               <th>
                   User Details:   <strong><%=  "#{@user.name} joined on #{@created_at.strftime("%b %d, %Y")}"  %></strong>
                   <span class="subscription-form-submit" style="float:right;">
-                      <%= link_to "Download Results", search_results_export_to_pdf_path(:search => params[:search]) %>
+                      <div class="export">
+                          <%= link_to "Download Results", search_results_export_to_pdf_path(:search => params[:search]) %>
+                      </div>
+
+
                   </span>
               </th>
           </tr>
